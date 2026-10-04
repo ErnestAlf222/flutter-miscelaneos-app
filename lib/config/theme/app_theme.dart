@@ -9,7 +9,7 @@ class AppTheme {
 
     // Text theme
     textTheme:  TextTheme(
-      titleLarge: GoogleFonts.roboto(),
+      titleLarge: GoogleFonts.montserratAlternates(),
       titleMedium: GoogleFonts.montserratAlternates( fontSize: 35)
 
 
