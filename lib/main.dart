@@ -1,18 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:miscelaneos/config/config.dart';
+import 'package:miscelaneos/presentation/provider/providers.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(
+
+    // ProviderScope es un widget que proporciona un contenedor para los proveedores de Riverpod. Permite que los widgets hijos accedan a los proveedores y sus estados.
+    const ProviderScope(
+      child: MainApp()
+    )
+
+  );
 }
 
-class MainApp extends StatefulWidget {
+class MainApp extends ConsumerStatefulWidget {
   const MainApp({super.key});
 
   @override
-  State<MainApp> createState() => _MainAppState();
+  MainAppState createState() => MainAppState();
 }
 
-class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
+class MainAppState extends ConsumerState<MainApp> with WidgetsBindingObserver {
 
   // Oberver para detectar cambios en el estado de la aplicación (por ejemplo, cuando se minimiza o se cierra)
   @override
@@ -31,7 +40,9 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
   // Detecta cambios en el estado de la aplicación y realiza acciones según el estado actual
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
+
     print('AppLifecycleState: $state');
+    ref.read(appStateProvider.notifier).state = state;
     super.didChangeAppLifecycleState(state);
   }
 

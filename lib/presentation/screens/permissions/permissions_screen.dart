@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../provider/providers.dart';
 
 class PermissionsScreen extends StatelessWidget {
   const PermissionsScreen({super.key});
@@ -15,11 +18,13 @@ class PermissionsScreen extends StatelessWidget {
 }
 
 //  Vista de permisos para mostrar el estado actual de los permisos de la aplicación
-class _PermissionsView extends StatelessWidget {
+class _PermissionsView extends ConsumerWidget {
   const _PermissionsView();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ref) {
+
+    final appState = ref.watch(appStateProvider);
     return ListView(
       children: [
         CheckboxListTile(
@@ -28,6 +33,7 @@ class _PermissionsView extends StatelessWidget {
           value: true,
           onChanged: (value) {},
         ),
+        
       ]
     );
   }
