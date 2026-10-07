@@ -24,14 +24,18 @@ class _PermissionsView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
 
-    final appState = ref.watch(appStateProvider);
+    final permissions = ref.watch(permissionsProvider);
     return ListView(
       children: [
         CheckboxListTile(
           title: const Text('Cámara'),
-          subtitle: const Text('Estado actual de los permisos de la cámara'),
-          value: true,
-          onChanged: (value) {},
+          subtitle:  Text('${permissions.camera}'),
+          value: permissions.cameraGranted,
+          onChanged: (_) {
+            // Se solicita el permiso de la cámara y se actualiza el estado de los permisos de la aplicación con el estado del permiso obtenido
+            ref.read(permissionsProvider.notifier).requestCameraAccess();
+
+          },
         ),
         
       ]
