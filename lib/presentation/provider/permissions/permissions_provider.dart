@@ -8,9 +8,7 @@ final permissionsProvider = StateNotifierProvider<PermissionsNotifier, Permissio
 
 
 class PermissionsNotifier extends StateNotifier<PermissionsState> {
-  PermissionsNotifier() : super(PermissionsState()) {
-    checkPermissions();
-  }
+  PermissionsNotifier() : super(PermissionsState());
 
   // Se crea un método para poder actualizar el estado de los permisos de la aplicación
   Future<void> checkPermissions() async {
@@ -34,6 +32,18 @@ class PermissionsNotifier extends StateNotifier<PermissionsState> {
     );
 
   }
+  // Se crea un método para poder abrir la configuración de la aplicación para que el usuario pueda habilitar los permisos manualmente
+  openSettingsScreen() async {
+    openAppSettings();
+
+  }
+  
+  // Se crea un método para poder solicitar el permiso de la cámara y actualizar el estado de los permisos de la aplicación con el estado del permiso obtenido
+  void _checkPermissionsState(PermissionStatus status){
+    if (status.isPermanentlyDenied) {
+      openSettingsScreen();
+    }
+  }
 
   requestCameraAccess() async {
     // Se solicita el permiso de la cámara y se actualiza el estado de los permisos de la aplicación con el estado del permiso obtenido
@@ -41,10 +51,25 @@ class PermissionsNotifier extends StateNotifier<PermissionsState> {
     state = state.copyWith(camera: status);
 
     // Si el permiso es denegado permanentemente, se abre la configuración de la aplicación para que el usuario pueda habilitar el permiso manualmente
-    if  (status.isPermanentlyDenied) {
-      openAppSettings();
-
-    }
+    _checkPermissionsState(status);
+  }
+  // Metodo para abrir fotos library access
+  requestPhotoLibraryAccess() async {
+    final status = await Permission.photos.request();
+    state = state.copyWith(photoLibrary: status);
+    _checkPermissionsState(status);
+  }
+  // Metodo para abrir localización access
+  requestLocationAccess() async {
+    final status = await Permission.location.request();
+    state = state.copyWith(location: status);
+    _checkPermissionsState(status);
+  }
+  // Metodo para abrir sensores del dispositivo access
+  requestSensorsAccess() async {
+    final status = await Permission.sensors.request();
+    state = state.copyWith(sensors: status);
+    _checkPermissionsState(status);
   }
 }
 

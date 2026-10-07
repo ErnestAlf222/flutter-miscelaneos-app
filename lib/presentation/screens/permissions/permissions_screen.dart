@@ -28,7 +28,7 @@ class _PermissionsView extends ConsumerWidget {
     return ListView(
       children: [
         CheckboxListTile(
-          title: const Text('Cámara'),
+          title:  const Text('Cámara'),
           subtitle:  Text('${permissions.camera}'),
           value: permissions.cameraGranted,
           onChanged: (_) {
@@ -37,7 +37,33 @@ class _PermissionsView extends ConsumerWidget {
 
           },
         ),
-        
+        CheckboxListTile(
+          title:  const Text('Galería de fotos'),
+          subtitle:  Text('${permissions.photoLibrary}'),
+          value: permissions.photoLibraryGranted,
+          onChanged: (_) {
+            ref.read(permissionsProvider.notifier).requestPhotoLibraryAccess();
+
+          },
+        ),
+        CheckboxListTile(
+          title:  const Text('Ubicación'),
+          subtitle:  Text('${permissions.location}'),
+          value: permissions.locationGranted,
+          onChanged: (_) {
+            ref.read(permissionsProvider.notifier).requestLocationAccess();
+
+          },
+        ),
+        CheckboxListTile(
+          title:  const Text('Sensors'),
+          subtitle:  Text('${permissions.sensors}'),
+          value: permissions.sensorsGranted,
+          onChanged: (_) {
+            ref.read(permissionsProvider.notifier).requestSensorsAccess();
+
+          },
+        ),  
       ]
     );
   }
