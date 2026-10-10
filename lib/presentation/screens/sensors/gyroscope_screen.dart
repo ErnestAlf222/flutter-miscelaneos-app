@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:miscelaneos/presentation/provider/providers.dart';
 
-import '../../provider/sensors/gyroscope_provider.dart';
+
 
 class GyroscopeScreen extends ConsumerWidget {
   const GyroscopeScreen({super.key});
