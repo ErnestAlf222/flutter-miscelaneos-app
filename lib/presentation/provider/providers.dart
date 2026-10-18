@@ -9,3 +9,6 @@ export 'compass/compas_provider.dart';
 export 'sensors/gyroscope_provider.dart';
 export 'sensors/accelerometer_providers.dart';
 export 'sensors/magnetometer_provider.dart';
+
+// Pokemons listado del e elemento
+export 'pokemons/pokemon_list_provider.dart';

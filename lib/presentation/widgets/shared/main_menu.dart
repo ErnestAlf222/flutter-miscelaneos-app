@@ -15,6 +15,7 @@ final menuItems = <MenuItem>[
   MenuItem('Magnetómetro', Icons.explore_outlined, '/magnetometer'),
   MenuItem('Giroscopio Ball', Icons.sports_baseball_outlined, '/gyroscope-ball'),
   MenuItem('Brujula', Icons.explore_sharp, '/compass'),
+  MenuItem('Pokemon', Icons.catching_pokemon_rounded, '/pokemons'),
 ];
 
 class MainMenu extends StatelessWidget {
@@ -49,7 +50,7 @@ class HomeMenuItem extends StatelessWidget {
     required this.title,
     required this.icon,
     required this.route, 
-    this.bgColors = const [Colors.lightBlue, Colors.blue],
+    this.bgColors = const [Colors.indigo, Colors.deepPurpleAccent],
   });
 
   @override
