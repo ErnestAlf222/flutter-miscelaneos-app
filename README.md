@@ -26,3 +26,10 @@ flutter run
 ```
 
 Para ver cambios al instante, usa `r` (hot reload) en la terminal mientras la app corre.
+
+
+dart run change_app_package_name:main com.ernestosanchez.miscelaneos --android
+
+sha-256 
+cd android
+./gradlew signingReport

@@ -37,7 +37,11 @@ class OnlyPokemonView extends StatelessWidget {
       appBar: AppBar(
         title: Text(pokemon.name),
         actions: [
-          IconButton(onPressed: ()=> SharePlugin.shareLink(pokemon.spriteFront,'Mira este pokemón' ), icon: const Icon(Icons.share_outlined))
+          IconButton(
+            onPressed: () =>
+                SharePlugin.shareLink('https://flutter-deep-linking-webapp.vercel.app/pokemons/${pokemon.id}/', 'Mira este pokemón'),
+            icon: const Icon(Icons.share_outlined),
+          ),
         ],
       ),
       body: Center(
