@@ -13,3 +13,7 @@ export 'sensors/magnetometer_provider.dart';
 // Pokemons listado del e elemento
 export 'pokemons/pokemon_list_provider.dart';
 export 'pokemons/pokemon_provider.dart';
+
+
+// Biometria rostro
+export 'local_auth/local_auth_provider.dart';

@@ -14,3 +14,7 @@ export 'sensors/compass_screen.dart';
 // Pokemon
 export 'pokemons/pokemon_screen.dart';
 export 'pokemons/only_pokemon_screen.dart';
+
+
+// Bimetric
+export 'biometrics/biometric_screen.dart';
