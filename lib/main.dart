@@ -8,6 +8,8 @@ import 'package:miscelaneos/presentation/provider/providers.dart';
 void main() {
   // Asegura que los widgets de Flutter estén inicializados antes de ejecutar la aplicación
   WidgetsFlutterBinding.ensureInitialized();
+  QuickActionsPlugin.registerActions();
+
   // Establece la orientación preferida de la aplicación a modo vertical (portrait)
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
