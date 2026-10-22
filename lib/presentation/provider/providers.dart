@@ -17,3 +17,8 @@ export 'pokemons/pokemon_provider.dart';
 
 // Biometria rostro
 export 'local_auth/local_auth_provider.dart';
+
+
+// Location
+export 'location/use_location_provider copy.dart';
+export 'location/watch_location_provider.dart';

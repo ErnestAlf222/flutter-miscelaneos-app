@@ -25,7 +25,11 @@ class HomeScreen extends StatelessWidget {
 
               ],
             ),
-            const MainMenu(),
+            const SliverPadding(
+              padding: EdgeInsets.symmetric(vertical: 12),
+              sliver: MainMenu(),
+              
+            ),
         
           ]
         ),

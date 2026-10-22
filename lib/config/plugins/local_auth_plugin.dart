@@ -33,7 +33,7 @@ class LocalAuthPlugin {
 
 
     } on LocalAuthException catch (e) {
-      print('e');
+      // print('e');
       if (e.code == LocalAuthExceptionCode.noBiometricsEnrolled) return (false, 'No hay biometricos enrolados');
       if (e.code == LocalAuthExceptionCode.biometricLockout) return (false, 'Muchos intentos fallidos');
       if (e.code == LocalAuthExceptionCode.noBiometricHardware) return (false, 'No hay biometricos disponibles');

@@ -18,3 +18,9 @@ export 'pokemons/only_pokemon_screen.dart';
 
 // Bimetric
 export 'biometrics/biometric_screen.dart';
+
+
+// Maps
+export 'location/controlled_map_screen.dart';
+export 'location/location_screen.dart';
+export 'location/map_screen.dart';
