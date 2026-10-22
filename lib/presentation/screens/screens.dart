@@ -28,3 +28,7 @@ export 'location/map_screen.dart';
 
 //Badge screen
 export 'badge/badge_screen.dart';
+
+// Ads
+export 'ads/adrewarded_screen.dart';
+export 'ads/ads_screen.dart';
