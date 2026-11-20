@@ -5,10 +5,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:miscelaneos/config/config.dart';
 import 'package:miscelaneos/presentation/provider/providers.dart';
 
-void main() {
-  // Asegura que los widgets de Flutter estén inicializados antes de ejecutar la aplicación
+Future<void> main() async {
+  // Inicializa Flutter antes de arrancar la app
   WidgetsFlutterBinding.ensureInitialized();
   QuickActionsPlugin.registerActions();
+  await AdsPlugin.init(); // SDK de anuncios
 
   // Establece la orientación preferida de la aplicación a modo vertical (portrait)
   SystemChrome.setPreferredOrientations([
@@ -38,6 +39,8 @@ class MainAppState extends ConsumerState<MainApp> with WidgetsBindingObserver {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    // Lee el estado real de permisos al abrir la app
+    Future.microtask(() => ref.read(permissionsProvider.notifier).checkPermissions());
   }
 
   // Detecta cambios en el estado de la aplicación y realiza acciones según el estado actual
@@ -61,9 +64,12 @@ class MainAppState extends ConsumerState<MainApp> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp.router(
+    return MaterialApp.router(
+      title: 'Miscelaneos',
       routerConfig: router,
       theme: AppTheme().getTheme(),
+      darkTheme: AppTheme().getDarkTheme(),
+      themeMode: ref.watch(themeModeProvider), // Tema elegido o del sistema
       debugShowCheckedModeBanner: false,
     );
   }

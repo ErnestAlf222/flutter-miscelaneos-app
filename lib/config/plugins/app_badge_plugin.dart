@@ -1,20 +1,21 @@
 import 'package:app_badge_plus/app_badge_plus.dart';
+import 'package:flutter/foundation.dart';
 
 class AppBadgePlugin {
-
   static Future<bool> get isBadgeSuported {
     return AppBadgePlus.isSupported();
   }
 
+  // Actualiza el número del icono (nunca menor a 0)
   static Future<void> updateBadgeCount(int count) async {
     try {
       if (!await isBadgeSuported) {
-        print('Badge no soportado');
+        debugPrint('Badge no soportado');
         return;
       }
       await AppBadgePlus.updateBadge(count < 0 ? 0 : count);
     } catch (e) {
-      print('Error en badge: $e');
+      debugPrint('Error en badge: $e');
     }
   }
 

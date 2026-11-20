@@ -31,4 +31,4 @@ export 'badge/badge_screen.dart';
 
 // Ads
 export 'ads/adrewarded_screen.dart';
-export 'ads/ads_screen.dart';
+export 'ads/ads_screen.dart';export 'splash/splash_screen.dart';

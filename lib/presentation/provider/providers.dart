@@ -20,8 +20,10 @@ export 'local_auth/local_auth_provider.dart';
 
 
 // Location
-export 'location/use_location_provider copy.dart';
+export 'location/use_location_provider.dart';
 export 'location/watch_location_provider.dart';
 
 // Badge
 export 'badge/badge_provider.dart';
+// Ajustes (tema y favoritos)
+export 'settings/settings_provider.dart';
